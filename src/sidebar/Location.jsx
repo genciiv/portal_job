@@ -3,44 +3,44 @@ import InputField from "../components/InputField";
 
 const Location = ({ handleChange }) => {
   return (
-    <div>
-      <h4 className="text-lg font-medium mb-2">Vendodhja</h4>
-
       <div>
-        <label className="sidebar-label-container">
-          <input type="radio" name="test" id="test" onChange={handleChange} />
-          <span className="checkmark"></span>All
-        </label>
+        <h4 className="text-lg font-medium mb-2">Vendodhja</h4>
 
-        <InputField
-          handleChange={handleChange}
-          value="london"
-          title="London"
-          name="test"
-        />
+        <div>
+          <label className="sidebar-label-container">
+            <input type="radio" name="test" id="test" onChange={handleChange} />
+            <span className="checkmark"></span>All
+          </label>
 
-        <InputField
-          handleChange={handleChange}
-          value="seattle"
-          title="Seattle"
-          name="test"
-        />
+          <InputField
+            handleChange={handleChange}
+            value="london"
+            title="London"
+            name="test"
+          />
 
-        <InputField
-          handleChange={handleChange}
-          value="madrid"
-          title="Madrid"
-          name="test"
-        />
+          <InputField
+            handleChange={handleChange}
+            value="seattle"
+            title="Seattle"
+            name="test"
+          />
 
-        <InputField
-          handleChange={handleChange}
-          value="boston"
-          title="Boston"
-          name="test"
-        />
+          <InputField
+            handleChange={handleChange}
+            value="madrid"
+            title="Madrid"
+            name="test"
+          />
+
+          <InputField
+            handleChange={handleChange}
+            value="boston"
+            title="Boston"
+            name="test"
+          />
+        </div>
       </div>
-    </div>
   );
 };
 

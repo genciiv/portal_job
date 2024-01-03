@@ -6,7 +6,7 @@
       "companyLogo": "/images/Linear.png",
       "minPrice": "20",
       "maxPrice": "30",
-      "salaryType": "Yearly",
+      "salaryType": "Monthly",
       "jobLocation": "Brussels",
       "postingDate": "2023-11-03",
       "experienceLevel": "Any experience",
