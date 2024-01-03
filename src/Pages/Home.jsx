@@ -43,7 +43,25 @@ const Home = () => {
   };
 
   //calculate the index range
-  
+  const calculatePageRange = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endInex = startIndex + itemsPerPage;
+    return {startIndex, endInex};
+  };
+
+  //function for the next page
+  const nextPage = () => {
+    if(currentPage < Math.ceil(filteredItems.length/itemsPerPage)){
+      setCurrentPage(currentPage + 1);  
+    }
+  }
+
+  //function for the previous page
+  const prevPage = () => {
+    if(currentPage > 1){
+      setCurrentPage(currentPage - 1)
+    }
+  }
 
   // main function
   const filteredData = (jobs, selected, query) => {
@@ -51,7 +69,9 @@ const Home = () => {
 
     //filtering input items
     if (query) {
-      filteredJobs = filteredItems;
+      filteredJobs = filteredJobs.filter(
+        (job) => job.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      );
     }
 
     //category filtering
@@ -72,6 +92,9 @@ const Home = () => {
       );
       console.log(filteredJobs);
     }
+
+    //slice the data based on the current page
+    const {startIndex, endInex} = calculatePageRange();filteredJobs = filteredJobs.slice(startIndex, endInex);
 
     return filteredJobs.map((data, i) => <Card key={i} data={data} />);
   };
@@ -94,13 +117,24 @@ const Home = () => {
           {isLoading ? (
             <p className="font-medium">Loading...</p>
           ) : result.length > 0 ? (
-            <Jobs result={result} />
+            result
           ) : (
             <>
               <h3 className="text-lg font-bold mb-2">{result.length}</h3>
               <p>Asnje e dhene nuk u gjet!</p>
             </>
           )}
+
+          {/* pagination page */}
+          {
+            result.length > 0 ? (
+              <div className="flex justify-center mt-4 space-x-8">
+                <button onClick={prevPage} className="hover:underline" disabled={currentPage === 1}>Mbrapa</button>
+                <span className="mx-2">Faqa {currentPage} e {Math.ceil(filteredItems.length/itemsPerPage)}</span>
+                <button onClick={nextPage} className="hover:underline"  disabled={currentPage === Math.ceil(filteredItems.length/itemsPerPage)}>Para</button>
+              </div>
+            ) : ""
+          }
         </div>
 
         {/* right side */}
