@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const navItems = [
     { path: "/", title: "Fillo kerimin" },
-    { path: "/my-job", title: "Puna Ime" },
+    { path: "/my-job", title: "Punet e mia" },
     { path: "/salary", title: "Vleresimi Pages" },
     { path: "/post-job", title: "Posto nje Pune" },
   ];
